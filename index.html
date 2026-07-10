@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FundFlow | Premium Mutual Fund Advisor</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+    <header class="glass-header">
+      <div class="logo">FundFlow.</div>
+      <button id="nav-top-funds-btn" class="primary-btn glow-btn small-btn hidden">Today's Top 3 For You</button>
+    </header>
+    
+    <main>
+      <!-- Landing View -->
+      <section id="landing-view" class="view active">
+        <div class="hero">
+          <h1>Smart investing made <span class="accent">effortless.</span></h1>
+          <p>Your personalized financial dashboard and mutual fund advisor.</p>
+          <button id="get-started-btn" class="primary-btn pulse">Get Started</button>
+        </div>
+      </section>
+
+      <!-- Dashboard View -->
+      <section id="dashboard-view" class="view hidden">
+        <div class="dashboard-header">
+          <h2>Welcome back, Investor</h2>
+          <p>Here is a snapshot of your current portfolio.</p>
+        </div>
+
+        <div class="dashboard-grid">
+          <!-- Portfolio Summary -->
+          <div class="glass-card dash-card">
+            <h3>Portfolio Value</h3>
+            <div class="huge-amount" id="dash-total-value">₹0</div>
+            <div class="metrics-row">
+              <div class="metric-mini">
+                <span>Returns</span>
+                <span class="success-text">+12.4%</span>
+              </div>
+              <div class="metric-mini">
+                <span>Risk Appetite</span>
+                <span id="dash-risk" class="accent-text">Medium</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Asset Allocation -->
+          <div class="glass-card dash-card">
+            <h3>Asset Allocation</h3>
+            <div class="allocation-bar-container">
+              <div class="allocation-bar">
+                <div id="alloc-equity" class="bar-segment equity" style="width: 60%"></div>
+                <div id="alloc-debt" class="bar-segment debt" style="width: 40%"></div>
+              </div>
+              <div class="allocation-legend">
+                <div><span class="dot dot-equity"></span> Equity: <span id="text-equity">60%</span></div>
+                <div><span class="dot dot-debt"></span> Debt: <span id="text-debt">40%</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Goals Management -->
+          <div class="glass-card dash-card full-width">
+            <h3>Your Financial Goals</h3>
+            <p class="hint-text">Select one or more goals to tailor our recommendations.</p>
+            <div class="goals-container" id="goals-container">
+              <button class="goal-pill selected" data-goal="short_term">Short-term Savings</button>
+              <button class="goal-pill" data-goal="wealth_creation">Wealth Creation</button>
+              <button class="goal-pill" data-goal="retirement">Retirement</button>
+              <button class="goal-pill" data-goal="tax_saving">Tax Saving</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Top 3 Recommendations View -->
+      <section id="recommendations-view" class="view hidden">
+        <div class="results-header">
+          <h2>Today's Top 3 Funds For You</h2>
+          <p>Curated based on your risk profile, current allocation, and selected goals.</p>
+          
+          <div class="filter-area">
+             <label for="overall-invest-amount">I want to invest approximately:</label>
+             <div class="input-row">
+               <span class="currency">₹</span>
+               <input type="number" id="overall-invest-amount" placeholder="e.g. 50000 (Optional)">
+               <button id="refresh-funds-btn" class="secondary-btn">Refresh</button>
+             </div>
+          </div>
+        </div>
+
+        <div class="funds-grid" id="funds-container">
+          <!-- Fund cards will be injected here via JS -->
+        </div>
+
+        <div class="actions-row">
+          <button id="back-to-dash-btn" class="secondary-btn">Back to Dashboard</button>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2026 FundFlow. For educational purposes only.</p>
+    </footer>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
